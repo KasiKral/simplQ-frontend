@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="logo"
+  >
+    <img
+      alt="Home"
+      src="/images/Simple-Q.png"
+    />
+    <p>
+      SimplQ
+    </p>
+  </div>
+</DocumentFragment>
+`;
