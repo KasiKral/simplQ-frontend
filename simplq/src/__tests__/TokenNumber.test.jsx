@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, cleanup, getByTitle } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Token from '../components/pages/Status/TokenNumber';
 
@@ -11,8 +11,10 @@ it('renders correctly', () => {
 });
 
 it('generate token on page', () => {
-    const { getByText, getByRole } = render(<Token tokenNumber="1234" />);
-    expect(getByText("1234")).toBeTruthy();
+    const arr = ["1234", "2356", "2349", "4103"]
+    const token = arr[Math.floor(Math.random() * arr.length)];
+    const { getByText } = render(<Token tokenNumber={token} />);
+    expect(getByText(token)).toBeInTheDocument();
 });
 
 it("component's elements are setup correctly", () => {

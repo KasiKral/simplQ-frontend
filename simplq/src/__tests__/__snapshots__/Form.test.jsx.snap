@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="form"
+  >
+    <div
+      class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+    >
+      <div
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth Mui-focused Mui-focused MuiInputBase-formControl"
+      >
+        <input
+          aria-invalid="false"
+          class="MuiInputBase-input MuiOutlinedInput-input"
+          placeholder="Name"
+          required=""
+          type="text"
+          value=""
+        />
+        <fieldset
+          aria-hidden="true"
+          class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+          style="padding-left: 8px;"
+        >
+          <legend
+            class="PrivateNotchedOutline-legend-2"
+            style="width: 0.01px;"
+          >
+            <span>
+              ​
+            </span>
+          </legend>
+        </fieldset>
+      </div>
+    </div>
+    <div
+      class=" react-tel-input"
+    >
+      <input
+        class=" form-control"
+        name="phone"
+        placeholder="Phone Number"
+        required=""
+        style="width: 100%;"
+        type="tel"
+        value="+91"
+      />
+      <div
+        class=" flag-dropdown"
+      >
+        <div
+          aria-haspopup="listbox"
+          class="selected-flag"
+          role="button"
+          tabindex="0"
+          title="India: + 91"
+        >
+          <div
+            class="flag in"
+          >
+            <div
+              class="arrow"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button
+        class="standard-button"
+        type="submit"
+      >
+        Join Queue
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
