@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, cleanup, getByRole } from '@testing-library/react';
+import { render, fireEvent, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Form from '../components/pages/Join/Form';
 
