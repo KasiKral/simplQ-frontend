@@ -31,7 +31,7 @@ export default (props) => {
         setTokens(data.tokens);
         setQueueName(data.queueName);
         // TODO: setDescription as soon as the backend returns it
-        setDescription('A nice dummy description');
+        setDescription('Ready to share');
         timeoutId = setTimeout(update, TIMEOUT);
       })
       .catch((err) => {
@@ -93,17 +93,13 @@ export default (props) => {
   );
 
   return (
-    <>
+    <div className={styles['admin-content']}>
       <AdminNavbar />
       <HeaderSection />
       <div className={styles['main-body']}>
-        <div
-          className={tokens?.length > 0 ? styles['token-list-with-content'] : styles['token-list']}
-        >
-          <TokenList tokens={tokens} queueId={queueId} removeTokenHandler={removeToken} />
-        </div>
+        <TokenList tokens={tokens} queueId={queueId} removeTokenHandler={removeToken} />
         <SidePanel queueId={queueId} joinQueueHandler={addNewToken} />
       </div>
-    </>
+    </div>
   );
 };

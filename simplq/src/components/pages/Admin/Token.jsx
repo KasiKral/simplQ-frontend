@@ -4,6 +4,7 @@ import Notifications from '@material-ui/icons/Notifications';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import NotificationsOffIcon from '@material-ui/icons/NotificationsOffSharp';
 import CallIcon from '@material-ui/icons/Call';
+import moment from 'moment';
 import * as TokenService from '../../../services/token';
 import { handleApiErrors } from '../../ErrorHandler';
 import styles from '../../../styles/adminPage.module.scss';
@@ -13,7 +14,9 @@ function Token(props) {
   const name = props.token.name;
   const tokenId = props.token.tokenId;
   const tokenNumber = props.token.tokenNumber;
+  const contactNumber = props.token.contactNumber;
   const notifiable = props.token.notifiable;
+  const tokenCreationTimestamp = props.token.tokenCreationTimestamp;
   const [notifying, setNotifying] = useState(false);
   const [isNotifyHovering, setIsNotifyHovering] = useState(false);
   const [didNotify, setDidNotify] = useState(props.token.tokenStatus === 'NOTIFIED');
@@ -40,7 +43,7 @@ function Token(props) {
   };
 
   const onCallClick = () => {
-    window.open(`tel:+${tokenNumber}`, '_self');
+    window.open(`tel:+${contactNumber}`, '_self');
   };
 
   let notificationButton = null;
@@ -54,8 +57,8 @@ function Token(props) {
   } else if (!notifiable) {
     // Not notifiable
     notificationButton = (
-      <IconButton edge="end" color="primary" aria-label="notify">
-        <NotificationsOffIcon fontSize="large" className={styles['token-icon']} />
+      <IconButton edge="end" color="primary" aria-label="notify" disabled>
+        <NotificationsOffIcon fontSize="large" className={styles['token-icon-disabled']} />
       </IconButton>
     );
   } else if (didNotify) {
@@ -105,7 +108,7 @@ function Token(props) {
       </div>
       <div className={styles['token-details']}>
         <div className={styles['token-name-time']}>
-          <p>Join time 11:02 pm</p>
+          <p>{moment(tokenCreationTimestamp).format('hh:mm A')}</p>
           <p>{name}</p>
         </div>
         <div className={styles['token-operations']}>

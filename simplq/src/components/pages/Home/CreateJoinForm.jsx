@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import * as QueueService from '../../../services/queue';
 import { handleApiErrors } from '../../ErrorHandler';
-import { CreateQButton, JoinQButton } from '../../common/Button';
+import Button, { CreateQueueButton } from '../../common/Button';
 import styles from '../../../styles/homePage.module.scss';
 import { handleEnterPress, isQueueNameValid } from '../../common/utilFns';
 import InputField from '../../common/InputField';
 import LoadingIndicator from '../../common/LoadingIndicator';
 
-const CreateJoinForm = ({ history }) => {
+const CreateJoinForm = () => {
   const [textFieldValue, setTextFieldValue] = useState('');
   const [invalidMsg, setInvalidMsg] = useState('');
   const [createInProgress, setCreateInProgress] = useState(false);
+  const history = useHistory();
 
   const handleCreateClick = () => {
     if (textFieldValue === '') setInvalidMsg('Queue name is required');
@@ -45,7 +47,7 @@ const CreateJoinForm = ({ history }) => {
   };
 
   return (
-    <div className={styles['create-join-form']}>
+    <div data-aos="zoom-in" className={styles['create-join-form']}>
       <div className={styles['input-box']}>
         <InputField
           placeholder="Queue Name"
@@ -59,10 +61,14 @@ const CreateJoinForm = ({ history }) => {
       </div>
       <div className={styles['button-group']}>
         <div>
-          {createInProgress ? <LoadingIndicator /> : <CreateQButton onClick={handleCreateClick} />}
+          {createInProgress ? (
+            <LoadingIndicator />
+          ) : (
+            <CreateQueueButton onClick={handleCreateClick} />
+          )}
         </div>
         <div>
-          <JoinQButton onClick={handleJoinClick} />
+          <Button onClick={handleJoinClick}>Join Queue</Button>
         </div>
       </div>
     </div>

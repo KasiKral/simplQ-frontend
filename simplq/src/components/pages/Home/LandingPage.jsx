@@ -6,14 +6,14 @@ import CreateJoinForm from './CreateJoinForm';
 import MyQueues from './MyQueues';
 import * as Auth from '../../../services/auth';
 
-export default (props) => {
+export default () => {
   const isLoggedIn = useSelector((state) => state.appReducer.isLoggedIn);
   const subtitle = isLoggedIn
     ? `Hi ${Auth.getGivenName()}, welcome back!`
     : 'A long overdue alternative to physical queues';
   return (
     <div id="target_top" className={styles['landing-page']}>
-      <div>
+      <div data-aos="zoom-in">
         <Header className={styles['main-header']}>SimplQ</Header>
         <p className={styles.subtitle}>{subtitle}</p>
         <p className={styles.description}>
@@ -22,7 +22,7 @@ export default (props) => {
         </p>
       </div>
       {isLoggedIn ? <MyQueues /> : <></>}
-      <CreateJoinForm history={props.history} />
+      <CreateJoinForm />
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#6C63FF29"
