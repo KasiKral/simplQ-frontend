@@ -67,14 +67,10 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
     </div>
-    <div>
-      <button
-        class="standard-button"
-        type="submit"
-      >
-        Join Queue
-      </button>
-    </div>
+    <button
+      class="standard-button"
+      type="submit"
+    />
   </div>
 </DocumentFragment>
 `;
