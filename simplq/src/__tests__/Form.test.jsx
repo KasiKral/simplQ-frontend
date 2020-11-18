@@ -12,7 +12,7 @@ it('renders correctly', () => {
 });
 
 describe('<Form>', () => {
-  it('Name placholder change', () => {
+  it('Name placholder Onchange', () => {
     const { getByPlaceholderText } = render(<Form />);
 
     const placeholderText = 'Name';
@@ -21,7 +21,7 @@ describe('<Form>', () => {
     expect(getByPlaceholderText(placeholderText)).toHaveValue(userInput);
   });
 
-  it('Number placholder change', () => {
+  it('Number placholder Onchange', () => {
     const { getByPlaceholderText, getByRole } = render(<Form />);
     const prefix = getByRole('button', { name: /india: \+ 91/i });
 
